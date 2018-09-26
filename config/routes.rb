@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     end
     resources :recycling_types 
     resources :collection_centers
+    #Cambio de prueba por Alex Lisker
 
 end
