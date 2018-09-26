@@ -4,6 +4,10 @@ Rails.application.routes.draw do
         resources vouchers
     end
     resources :recycling_types 
+
+    #Javi hermano hagale pues
+    
     resources :collection_centers
+    #Cambio de prueba por Alex Lisker
 
 end
