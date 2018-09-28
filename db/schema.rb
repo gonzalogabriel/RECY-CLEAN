@@ -12,16 +12,23 @@
 
 ActiveRecord::Schema.define(version: 2018_09_25_211028) do
 
-  create_table "collection_centers", force: :cascade do |t|
+  create_table "centers", force: :cascade do |t|
     t.string "name_center"
     t.string "address_center"
     t.float "gps_latitude"
-    t.float "gps_length"
+    t.float "gps_longitude"
     t.string "email_center"
     t.string "phone_center"
     t.string "schedule"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "centers_recycling_types", id: false, force: :cascade do |t|
+    t.integer "center_id"
+    t.integer "recycling_type_id"
+    t.index ["center_id"], name: "index_centers_recycling_types_on_center_id"
+    t.index ["recycling_type_id"], name: "index_centers_recycling_types_on_recycling_type_id"
   end
 
   create_table "recycling_types", force: :cascade do |t|
@@ -53,10 +60,10 @@ ActiveRecord::Schema.define(version: 2018_09_25_211028) do
     t.datetime "delivery_date"
     t.integer "user_id"
     t.integer "recyclingType_id"
-    t.integer "collectionCenter_id"
+    t.integer "center_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["collectionCenter_id"], name: "index_vouchers_on_collectionCenter_id"
+    t.index ["center_id"], name: "index_vouchers_on_center_id"
     t.index ["recyclingType_id"], name: "index_vouchers_on_recyclingType_id"
     t.index ["user_id"], name: "index_vouchers_on_user_id"
   end

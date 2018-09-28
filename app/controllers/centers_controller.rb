@@ -1,4 +1,4 @@
-class CollectionCentersController < ApplicationController
+class CentersController < ApplicationController
   
   
   

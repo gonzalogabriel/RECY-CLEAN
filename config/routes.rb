@@ -5,10 +5,10 @@ Rails.application.routes.draw do
     end
     
     resources :recycling_types do
-        resources :collection_centers
+        resources :centers
     end
     
-    resources :collection_centers do
+    resources :centers do
         resources :recycling_types
     end
 end
