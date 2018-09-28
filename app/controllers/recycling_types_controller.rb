@@ -18,4 +18,16 @@ class RecyclingTypesController < ApplicationController
 
         render json: @borrar_material, status: :destroyed
     end
+
+    def update
+        @actualizarTipos = RecyclingType.find(params[:id])
+        @actualizarTipos.update(tiporecy_params)
+        render json: @actualizarTipos, status: :updated  
+    end
+
+    def tiporecy_params
+        params.permit(:material, :description, :goal_value)
+    end
+
+
 end
