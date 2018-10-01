@@ -6,7 +6,7 @@ class CreateVouchers < ActiveRecord::Migration[5.2]
       t.datetime :delivery_date
       t.references :user, foreign_key: true
       t.references :recyclingType, foreign_key: true
-      t.references :collectionCenter, foreign_key: true
+      t.references :center, foreign_key: true
 
       t.timestamps
     end
