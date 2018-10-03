@@ -22,12 +22,12 @@ class VouchersController < ApplicationController
         #autor = Autor.find(params [:autor_id])
     end
     def create
-        @crear_voucher = Voucher.create(recibo_params)
-        render json: @crear_voucher, status: :voucher_creado
+        @crearvoucher = Voucher.create(recibo_params)
+        render json: @crearvoucher, status: :voucher_creado
     end 
 
     def recibo_params
-        params.permit(:metrics, :delivered, :delivery_date)
+        params.permit(:id, :metrics, :delivered, :delivery_date, :user_id, :recyclingType_id, :center_id)
     end
 
 
